@@ -29,19 +29,19 @@ def brute_force(word: str, length: int, digits: bool = False, symbols: bool = Fa
         if guess == word:
             return f"'{word}' was cracked in {attempts:,} guesses."
 
-        print(guess, attempts)
+        # print(guess, attempts)
 
 
 def main():
     print("Searching...")
-    password: str = "abc1"
+    password: str = "dior"
 
     start_time: float = time.perf_counter()
 
     if common_match := common_guess(password):
         print(common_match)
     else:
-        if cracked := brute_force(password, length=4, digits=True, symbols=True):
+        if cracked := brute_force(password, length=4, digits=False, symbols=False):
             print(cracked)
         else:
             print("There was no match...")
@@ -51,4 +51,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(common_guess("apple"))
+    main()
