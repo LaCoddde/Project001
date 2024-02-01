@@ -47,7 +47,7 @@ def main():
             print("There was no match...")
 
     end_time: float = time.perf_counter()
-    print(round(end_time - start_time, 2), "s")
+    print(round(end_time - start_time, 2), "Seconds")
 
 
 if __name__ == '__main__':
