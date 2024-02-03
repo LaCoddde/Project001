@@ -49,7 +49,7 @@ def main():
         print("Files sorted successfully")
 
     else:
-        print("Invalid path provided")
+        print("Invalid path provided!")
 
 
 if __name__ == '__main__':
