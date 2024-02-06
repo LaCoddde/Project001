@@ -1,9 +1,10 @@
 import json
 from typing import Final
 import requests
+import os
 
 BASE_URL: Final[str] = "http://api.exchangeratesapi.io/v1/latest"
-API_KEY: Final[str] = "930d74b3bb864fe9af2fcb128a51b86e"
+API_KEY: Final[str] = os.environ.get("EXCHANGERATESKEY")
 
 
 def get_rates(mock: bool = False) -> dict:
@@ -40,7 +41,7 @@ def convert_currency(amount: float, base: str, vs: str, rates: dict) -> float:
 
 
 def main():
-    data: dict = get_rates(mock=True)
+    data: dict = get_rates(mock=False)
     while True:
         try:
             input_amount: float = float(input("Enter amount to convert: "))
