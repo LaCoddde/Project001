@@ -41,7 +41,7 @@ def convert_currency(amount: float, base: str, vs: str, rates: dict) -> float:
 
 
 def main():
-    data: dict = get_rates(mock=False)
+    data: dict = get_rates(mock=True)
     while True:
         try:
             input_amount: float = float(input("Enter amount to convert: "))
