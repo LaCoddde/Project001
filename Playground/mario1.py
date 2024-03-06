@@ -8,14 +8,11 @@ from cs50 import get_int
 """
 
 while True:
-    try:
-        height: int = get_int("Enter Pyramid height: ")
-        if height < 1 or height > 8:
-            print("Pyramid height can only be b/w 1 and 8")
-        else:
-            break
-    except ValueError:
-        pass
+    height: int = get_int("Enter Pyramid height: ")
+    if 1 <= height <= 8:
+        break
+    else:
+        print("Pyramid height can only be between 1 and 8.")
 
 print(height)
 
