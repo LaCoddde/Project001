@@ -18,7 +18,7 @@ def checksum(credit: str) -> bool:
 
 
 def card_type(cc: str):
-    if cc.startswith("4") and len(cc) == 16:
+    if cc.startswith("4") and len(cc) in [16, 13]:
         print("VISA")
 
     # elif (card[:2] in [[3, 7], [3, 4]]) and len(card) == 15:
