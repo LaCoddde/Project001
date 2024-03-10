@@ -1,3 +1,4 @@
+import re
 import string
 
 """
@@ -26,11 +27,16 @@ SOLUTION;
 2. Count letters, words, and sentences
 3. Compute index using formula
 4. Output Grade properly
+
+Testing:
+Text? Good morning, people. and Hello World!
 """
 
 prompt: str = input("Text: ")
 
 count_letter: int = 0
+count_words = 0
+count_sentences = 0
 
 for letter in prompt:
     for _ in string.ascii_letters:
@@ -40,8 +46,21 @@ for letter in prompt:
 print(f"Number of letters: {count_letter}")
 
 words: list[str] = [word.strip(string.punctuation) for word in prompt.split()]
+count_words = len(words)
 print(words)
-print(f"Number of words: {len(words)}")
+print(f"Number of words: {count_words}")
 
-sentences = [sentence for sentence in prompt.split(". ")]
+sentences = re.split(r'(?<=[.!?]) +', prompt)
+count_sentences = len(sentences)
 print(sentences)
+print(f"Number of sentences: {count_sentences}")
+
+L = (count_letter / count_words) * 100
+S = (count_sentences / count_words) * 100
+
+print(f"Average number of letters/100 words is: {L}")
+print(f"Average number of sentence/100 words is: {S}")
+
+coleman_index = round((0.0588 * L) - (0.296 * S) - 15.8)
+
+print(f"Coleman index is: {coleman_index}")
