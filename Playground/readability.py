@@ -64,3 +64,14 @@ print(f"Average number of sentence/100 words is: {S}")
 coleman_index = round((0.0588 * L) - (0.296 * S) - 15.8)
 
 print(f"Coleman index is: {coleman_index}")
+
+grade = ""
+
+if coleman_index < 1:
+    grade = "Before Grade 1"
+elif coleman_index >= 16:
+    grade = "Grade 16+"
+else:
+    grade = "Grade " + str(coleman_index)
+
+print(f"Coleman Liau index is: {grade}")
